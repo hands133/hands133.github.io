@@ -50,7 +50,11 @@
     <section class="post-excerpt">
       <p>
       
-        
+        2021 重新出发我的博客无了，只能开个新的了。虽然之前在本科写了好多，但是其实都是些乱七八糟没啥意义的代码分享（贝塞尔曲线那个不算）。现在重新安装了 hexo，只能重新开始了，发发牢骚。
+虽然我也不想这样，但是没有办法，公式插件啥的都得重新弄
+什么世道
+$E = mc^2$
+
       
       </p>
       
@@ -113,5 +117,21 @@ Quick StartCreate a new p
 
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>
