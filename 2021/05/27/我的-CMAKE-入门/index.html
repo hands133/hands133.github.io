@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>我的 CMAKE 入门 | 十兽鉴的博客</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+
+  <meta name="generator" content="十兽鉴的博客">
+
+  
+  
+  
+
+  
+</head>
+
+
+<body class="post-template">
+
+  <header class="site-head"  style="background-image: url(https://www.hualigs.cn/image/60af30fc75a05.jpg)" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="https://www.hualigs.cn/image/60af35f75dd5a.jpg" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">十兽鉴的博客</h1>
+            <h2 class="blog-description"></h2>
+        </div>
+    </div>
+</header>
+  
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2021-05-27T15:29:37.000Z" itemprop="datePublished">
+          2021-05-27
+      </time>
+    
+    
+    | 
+    <a href='/tags/CMAKE/'>CMAKE</a>,
+    
+    <a href='/tags/C/'>C++</a>
+    
+    
+</span>
+    <h1 class="post-title">我的 CMAKE 入门</h1>
+    <section class="post-content">
+      <p>尝试 CMake 入门。之前跟着 <a target="_blank" rel="noopener" href="https://github.com/TheCherno">TheCherno</a> 大佬的游戏引擎视频教程 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1KE41117BD?p=34&amp;spm_id_from=pageDriver">最好的游戏引擎开发教学没意见吧！</a>（<a target="_blank" rel="noopener" href="https://github.com/TheCherno/Hazel">repo</a>）尝试使用 <a target="_blank" rel="noopener" href="https://premake.github.io/">premake</a> 构建工程，但是考虑到大多数的开源项目都是用 <a target="_blank" rel="noopener" href="https://cmake.org/">CMake</a> 进行管理的，还是决定要学习一下 CMake。在这里会记录一下常用的 CMake，同时也作为我的第一篇正式博客贴出。</p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>学习内容参考 <a target="_blank" rel="noopener" href="https://sfumecjf.github.io/cmake-examples-Chinese/">cmake-examples-Chinese</a>，对应的代码 <a target="_blank" rel="noopener" href="https://github.com/ttroy50/cmake-examples">cmake-examples</a>。</p>
+<ul>
+<li>除非特殊说明，所有的 CMake 项目构建过程按如下方式进行：</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br></pre></td></tr></table></figure>
+<p>Windows 下（如果安装了VS）默认生成 VS 的 .sln 工程项目，Linux 下可以直接在 <code>build</code> 文件夹中执行</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
+<p>编译代码生成可执行文件。</p>
+<h2 id="2021-5-27"><a href="#2021-5-27" class="headerlink" title="2021.5.27"></a>2021.5.27</h2><h3 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h3><p>对于只包含一个源文件 <code>main.cpp</code> 的简单项目，只需要在项目文件夹下创建 <code>CMakeLists.txt</code> 并写入基本信息：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.5</span>)     <span class="comment">#设置CMake最小版本</span></span><br><span class="line"><span class="keyword">project</span> (hello_cmake)                   <span class="comment">#设置工程名</span></span><br><span class="line"><span class="keyword">add_executable</span>(hello_cmake main.cpp)    <span class="comment">#生成可执行文件</span></span><br></pre></td></tr></table></figure>
+<p><code>cmake_minimum_required</code> 版本要求需要查看 API 文档，像添加预编译头文件（pch.h）的功能 <code>target_precompile_headers</code> 的功能在版本 3.16 之后添加。</p>
+<p><code>project</code> 同时定义了以下的常量：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$&#123;PROJECT_NAME&#125;</span>     <span class="comment"># 就是 hello_cmake</span></span><br></pre></td></tr></table></figure>
+<p><code>add_executable</code> 中第一个参数就是解决方案中唯一一个（暂时）项目的名字。</p>
+<h3 id="项目设置"><a href="#项目设置" class="headerlink" title="项目设置"></a>项目设置</h3><ul>
+<li><code>project</code> 项目名后可以添加性质（trait）<ul>
+<li>版本就是 <code>VERSION X.X.X</code></li>
+<li>描述就是 <code>DESCRIPTION &quot;XXX&quot;</code></li>
+<li>语言就是 <code>LANGUAGES CXX</code></li>
+</ul>
+</li>
+<li>使用 <code>set</code> 可以设置常量和修改预置量，如<ul>
+<li>设置常量<ul>
+<li><code>set(INCLUDE_DIR &quot;include/&quot;)</code> =&gt; <code>$&#123;INCLUDE_DIR&#125;</code> 等价 <code>&quot;include&quot;</code></li>
+</ul>
+</li>
+<li>修改预置量<ul>
+<li><code>set(CMAKE_CXX_STANDARD 17)</code> 指定 C++ 语言版本为 C++17</li>
+<li><code>set(CMAKE_CXX_STANDARD_REQUIRED ON/OFF)</code> 是否允许低版本语言编译</li>
+<li><code>set(CMAKE_CXX_EXTENSIONS ON/OFF)</code> <strong>不懂干嘛的，之后懂了可能会补上</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>使用 <code>target_include_directories(name &lt;PUBLIC|PRIVATE|INTERFACE&gt; dir)</code> 向项目 name 添加位于 dir 下的头文件，有三种访问方式：<ul>
+<li>PUBLIC: name 中的头文件和源文件都包含了 dir 的头文件，main.cpp 也需要包含 dir 下的头文件</li>
+<li>PRIVATE: name 中只有源文件包含了 dir 的头文件，main.cpp 对 dir 的头文件未知（无法 include）</li>
+<li>INTERFACE: name 中只有头文件包含了 dir 的头文件，main.cpp 需要包含 dir 下的头文件</li>
+</ul>
+</li>
+</ul>
+<p>先写这么多吧。</p>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>十兽鉴（hands133）</h4>
+    <p>一个（伪）图形程序员，专业方向为模型压缩和科学计算可视化，喜欢开发点小工具。最近在看游戏引擎开发，学习框架。</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-twitter" target="_blank" rel="noopener" href="http://twitter.com/share?url=http://example.com/2021/05/27/我的-CMAKE-入门/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/05/27/我的-CMAKE-入门/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" target="_blank" rel="noopener" href="https://plus.google.com/share?url=http://example.com/2021/05/27/我的-CMAKE-入门/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <span class="page-number">•</span>
+    
+    <a class="older-posts" href="/2021/05/27/blog-in-2021/">
+        blog in 2021 →
+    </a>
+    
+</nav>
+  <div id="comment" class="comments-area">
+    <h1 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h1>
+
+    
+</div>
+</main>
+
+
+  
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">十兽鉴的博客</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" target="_blank" rel="noopener" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+</html>
