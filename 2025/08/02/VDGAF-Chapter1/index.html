@@ -36,7 +36,7 @@
 <meta property="og:image" content="http://example.com/2025/08/02/VDGAF-Chapter1/figures/Ex9_4.png">
 <meta property="og:image" content="http://example.com/2025/08/02/VDGAF-Chapter1/figures/Ex10_1.png">
 <meta property="article:published_time" content="2025-08-02T15:10:23.000Z">
-<meta property="article:modified_time" content="2025-08-02T15:52:44.017Z">
+<meta property="article:modified_time" content="2025-08-02T16:27:54.110Z">
 <meta property="article:author" content="十兽鉴（hands133）">
 <meta property="article:tag" content="微分几何，可视化微分几何">
 <meta name="twitter:card" content="summary">
@@ -56,7 +56,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"十兽鉴（hands133）","sameAs":[]},"dateCreated":"2025-08-02T23:10:23+08:00","dateModified":"2025-08-02T23:52:44+08:00","datePublished":"2025-08-02T23:10:23+08:00","description":"","headline":"可视化微分几何与形式（第一章练习题）","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2025/08/02/VDGAF-Chapter1/"},"publisher":{"@type":"Organization","name":"十兽鉴（hands133）","sameAs":[]},"url":"http://example.com/2025/08/02/VDGAF-Chapter1/","keywords":"微分几何，可视化微分几何","image":[]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"十兽鉴（hands133）","sameAs":[]},"dateCreated":"2025-08-02T23:10:23+08:00","dateModified":"2025-08-03T00:27:54+08:00","datePublished":"2025-08-02T23:10:23+08:00","description":"","headline":"可视化微分几何与形式（第一章练习题）","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2025/08/02/VDGAF-Chapter1/"},"publisher":{"@type":"Organization","name":"十兽鉴（hands133）","sameAs":[]},"url":"http://example.com/2025/08/02/VDGAF-Chapter1/","keywords":"微分几何，可视化微分几何","image":[]}</script>
   
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
@@ -90,7 +90,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2025-08-02T15:10:23.000Z">2025-08-02</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2025-08-02T15:52:44.017Z">2025-08-02</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2025-08-02T15:10:23.000Z">2025-08-02</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2025-08-02T16:27:54.110Z">2025-08-03</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -224,9 +224,9 @@ $$</p>
 <p>于是</p>
 <p>$$<br>
 \begin{align*}<br>
-I &amp;= \lim_{x \to 0} \frac{f(x) - g(x)}{g^{-1}(x) - f^{-1}(x)} \<br>
-&amp;\xlongequal{\text{洛必达法则}} \lim_{x \to 0} \frac{f’(x) - g’(x)}{\dfrac{1}{g’(x)} - \dfrac{1}{f’(x)}} \<br>
-&amp;= \lim_{x \to 0} g’(x)f’(x) \<br>
+I &amp;= \lim_{x \to 0} \frac{f(x) - g(x)}{g^{-1}(x) - f^{-1}(x)} \\<br>
+&amp;\xlongequal{\text{洛必达法则}} \lim_{x \to 0} \frac{f’(x) - g’(x)}{\dfrac{1}{g’(x)} - \dfrac{1}{f’(x)}} \\<br>
+&amp;= \lim_{x \to 0} g’(x)f’(x) \\<br>
 &amp;= g’(0)f’(0).<br>
 \end{align*}<br>
 $$</p>
@@ -310,14 +310,14 @@ $$<br>
 <p>已知单位圆方程为 $x^2 + y^2 = 1$。直线与圆的交点可以通过联立单位圆方程直线方程求解得到，即</p>
 <p>$$<br>
 \begin{cases}<br>
-x^2 + y^2 = 1, \<br>
+x^2 + y^2 = 1, \\<br>
 y = m(x + 1).<br>
 \end{cases}<br>
 $$</p>
 <p>注意到直线经过圆上一点 $(-1, 0)$，那么只要直线不与单位圆相切（此时直线平行 $y$ 轴），则直线和单位圆必有两个交点。求解方程组，可得</p>
 <p>$$<br>
 \begin{cases}<br>
-X = -1, \<br>
+X = -1, \\<br>
 Y = 0,<br>
 \end{cases}<br>
 \quad \text{和} \quad<br>
@@ -353,8 +353,8 @@ $$</p>
 <p>1。证明：只需验证 $a^2 + b^2 = h^2$ 即可，即：</p>
 <p>$$<br>
 \begin{cases}<br>
-a^2 = [(p^2 - q^2)r]^2 = (p^4 - 2p^2q^2 + q^4)r^2, \<br>
-b^2 = 4p^2q^2r^2, \<br>
+a^2 = [(p^2 - q^2)r]^2 = (p^4 - 2p^2q^2 + q^4)r^2, \\<br>
+b^2 = 4p^2q^2r^2, \\<br>
 h^2 = [(p^2 + q^2)r]^2 = (p^4 + 2p^2q^2 + q^4)r^2,<br>
 \end{cases}<br>
 $$</p>
@@ -397,8 +397,8 @@ $$</p>
 <p>球面三角形一定在相邻的两条边所在球面的夹角范围内。以极点三角形为例，三角形直径最大时，极角对应的边长一定在赤道上。此时，极角对边的长度小于半圆周 $\pi$，面积小于 $2\pi$，即：</p>
 <p>$$<br>
 \begin{cases}<br>
-S &lt; 2\angle A R^2 = 2\pi, \<br>
-S &lt; 2\angle B R^2 = 2\pi, \<br>
+S &lt; 2\angle A R^2 = 2\pi, \\<br>
+S &lt; 2\angle B R^2 = 2\pi, \\<br>
 S &lt; 2\angle C R^2 = 2\pi,<br>
 \end{cases}<br>
 $$</p>
@@ -473,7 +473,7 @@ $$</p>
 <p>又<br>
 $$<br>
 \begin{aligned}<br>
-\mathcal{E}(\triangle ABC) + \mathcal{E}(\triangle ACD) &amp;= (\angle BAC + \angle ABC + \angle BCA - \pi) + (\angle ACD + \angle CDA + \angle DAC - \pi) \<br>
+\mathcal{E}(\triangle ABC) + \mathcal{E}(\triangle ACD) &amp;= (\angle BAC + \angle ABC + \angle BCA - \pi) + (\angle ACD + \angle CDA + \angle DAC - \pi) \\<br>
 &amp;= (\angle BAC + \angle CAD) + \angle ABC + (\angle BCA + \angle ACD) + \angle CDA - 2\pi,<br>
 \end{aligned}<br>
 $$</p>
@@ -485,14 +485,14 @@ $$</p>
 <p>$$<br>
 \begin{cases}<br>
 \displaystyle \mathcal{E}(\triangle ABC) = \frac{1}{R^2}A(\triangle ABC), \\[1em]<br>
-\displaystyle \mathcal{E}(\triangle ACD) = \frac{1}{R^2}A(\triangle ACD). \<br>
+\displaystyle \mathcal{E}(\triangle ACD) = \frac{1}{R^2}A(\triangle ACD). \\<br>
 \end{cases}<br>
 $$</p>
 <p>两式相加可得</p>
 <p>$$<br>
 \begin{aligned}<br>
-\mathcal{E}(\triangle ABC) + \mathcal{E}(\triangle ACD) &amp;= \mathcal{E}(Q) \<br>
-&amp;= \frac{1}{R^2}A(\triangle ABC) + \frac{1}{R^2}A(\triangle ACD) \<br>
+\mathcal{E}(\triangle ABC) + \mathcal{E}(\triangle ACD) &amp;= \mathcal{E}(Q) \\<br>
+&amp;= \frac{1}{R^2}A(\triangle ABC) + \frac{1}{R^2}A(\triangle ACD) \\<br>
 &amp;= \frac{1}{R^2}[A(\triangle ABC) + A(\triangle ACD)] = \frac{1}{R^2}A(Q).<br>
 \end{aligned}<br>
 $$</p>
@@ -503,14 +503,14 @@ $$</p>
 <p>使用小 $n$ 边形代替 $\Delta_p$，角盈为 $\mathcal{E}(n \text{ 边形}) \equiv (\text{内角和}) - (n - 2)\pi$，那么 (2.1) 式</p>
 <p>$$<br>
 \begin{aligned}<br>
-\lim_{\Delta_p \to p}\frac{\mathcal{E}(\text{$n$ 边形})}{A(\text{$n$ 边形})} &amp;= \lim_{\Delta_p \to p} \frac{\mathcal{E}(\text{$n$ 边形内角和}) - (n - 2)\pi}{A(\text{$n$ 边形})} \<br>
+\lim_{\Delta_p \to p}\frac{\mathcal{E}(\text{$n$ 边形})}{A(\text{$n$ 边形})} &amp;= \lim_{\Delta_p \to p} \frac{\mathcal{E}(\text{$n$ 边形内角和}) - (n - 2)\pi}{A(\text{$n$ 边形})} \\<br>
 &amp;= \lim_{\Delta_p \to p} \frac{\sum_{i = 1}^{n - 2}\mathcal{E}(\triangle_i)}{\sum_{i = 1}^{n - 2} A(\triangle_i)}. \qquad \text{（$\triangle_i$ 为多边形拆分后的第 $i$ 个子三角形）}<br>
 \end{aligned}<br>
 $$</p>
 <p>又</p>
 <p>$$<br>
 \begin{aligned}<br>
-\frac{\sum_{i = 1}^{n - 2}\mathcal{E}(\triangle_i)}{\sum_{i = 1}^{n - 2} A(\triangle_i)} &amp;\asymp \frac{\sum_{i = 1}^{n - 2} \mathcal{K}(p) A(\triangle_i)}{\sum_{i = 1}^{n - 2} A(\triangle_i)} \qquad \text{公式 (2.7)} \<br>
+\frac{\sum_{i = 1}^{n - 2}\mathcal{E}(\triangle_i)}{\sum_{i = 1}^{n - 2} A(\triangle_i)} &amp;\asymp \frac{\sum_{i = 1}^{n - 2} \mathcal{K}(p) A(\triangle_i)}{\sum_{i = 1}^{n - 2} A(\triangle_i)} \qquad \text{公式 (2.7)} \\<br>
 &amp;\asymp \frac{\mathcal{K}(p)\left[\sum_{i = 1}^{n - 2} A(\triangle_i)\right]}{\sum_{i = 1}^{n - 2} A(\triangle_i)} \asymp \mathcal{K}(p),<br>
 \end{aligned}<br>
 $$</p>
